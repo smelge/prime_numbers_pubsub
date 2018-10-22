@@ -10,7 +10,8 @@ InputText.prototype.bindEvents = function(){
   form.addEventListener("submit",(event)=>{
     event.preventDefault();
     const inputtedText = event.target.number.value;
-    console.log('Input: ',inputtedText);
+    // console.log('Input: ',inputtedText);
+    PubSub.publish("InputText:number-submitted",inputtedText);
   });
 };
 
