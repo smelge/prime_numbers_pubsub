@@ -1,18 +1,17 @@
 const PubSub = require('../helpers/pubsub.js');
 
-const InputText = function(){
+const FormView = function(){
 
 };
 
-InputText.prototype.bindEvents = function(){
+FormView.prototype.bindEvents = function(){
   const form = document.querySelector('#prime-checker-form');
-  // console.log('got form input');
   form.addEventListener("submit",(event)=>{
     event.preventDefault();
     const inputtedText = event.target.number.value;
     // console.log('Input: ',inputtedText);
-    PubSub.publish("InputText:number-submitted",inputtedText);
+    PubSub.publish("FormView:text-submitted",inputtedText);
   });
 };
 
-module.exports = InputText;
+module.exports = FormView;
